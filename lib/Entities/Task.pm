@@ -1,4 +1,4 @@
-package lib::Tasks::Entities::Task;
+package lib::Entities::Task;
 use strict;
 use warnings;
 use Data::Dumper;  
@@ -35,7 +35,17 @@ return $self;
 
 #Object accessor methods
 sub id{$_[0]->{id} = $_[1] if defined $_[1]; $_[0]->{id} }
-sub date{$_[0]->{date} = $_[1] if defined $_[1]; $_[0]->{date} }
+sub description{$_[0]->{description} = $_[1] if defined $_[1]; $_[0]->{description} }
+#video interpretation of task question
+sub video{$_[0]->{video} = $_[1] if defined $_[1]; $_[0]->{video} }
+#audio interpretation of task question
+sub audio{$_[0]->{audio} = $_[1] if defined $_[1]; $_[0]->{audio} }
+#text interpretation of task question
+sub text{$_[0]->{text} = $_[1] if defined $_[1]; $_[0]->{text} }
+sub answer_1{$_[0]->{answer_1} = $_[1] if defined $_[1]; $_[0]->{answer_1} }
+sub answer_2{$_[0]->{answer_2} = $_[1] if defined $_[1]; $_[0]->{answer_2} }
+sub answer_3{$_[0]->{answer_3} = $_[1] if defined $_[1]; $_[0]->{answer_3} }
+sub answer_4{$_[0]->{answer_4} = $_[1] if defined $_[1]; $_[0]->{answer_4} }
 
 1;
 
