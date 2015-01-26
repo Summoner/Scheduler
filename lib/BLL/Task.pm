@@ -1,23 +1,17 @@
 package lib::BLL::Task;
 use strict;
 use warnings;
-use Data::Dumper; 
+use Data::Dumper;
 use lib::DAL::Task;
 use lib::Entities::Task;
 use base 'lib::BLL';
 use Log::Log4perl;
+
 Log::Log4perl->init("/home/fanatic/Summoner/Scheduler/lib/Diagnostic/log.conf");
-#Constructor
-sub new {
-    my $class = shift;
-    my $self = {};
-	bless ($self,$class);    
-    return $self;
-}
 
-  sub add{
+sub add{
 
-	my $self = shift;	
+	my $self = shift;
 	my $task = lib::Entities::Task->new(@_);
 	if (defined $task){
 		my $tasks = lib::DAL::Task->new();
@@ -27,8 +21,8 @@ sub new {
 
 sub get_by_id{
 
-	my ( $self,$id ) = @_;	
-	
+	my ( $self,$id ) = @_;
+
 	my $tasks = lib::DAL::Task->new();
 	my $task = $tasks->get_by_id($id);
 	return $task
@@ -36,15 +30,15 @@ sub get_by_id{
 
 sub update_by_id{
 
-    my ( $self,$id ) = @_;	
-		
+    my $self = shift;
+    my $id = shift;
+
 	my $task = lib::Entities::Task->new(@_);
 	if (defined $task){
 		my $tasks = lib::DAL::Task->new();
 		$tasks->update_by_id($id,$task);
 	}
 }
-
 
 sub delete_by_id{
 
@@ -56,7 +50,7 @@ sub delete_by_id{
 
 sub get_list{
 
-	my $self = shift;	
+	my $self = shift;
 	my $tasks = lib::DAL::Task->new();
 	my $tasks_list = $tasks->get_list();
 	return $tasks_list;
